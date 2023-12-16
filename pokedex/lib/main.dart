@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
       title: 'PokeAPI Flutter',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        scaffoldBackgroundColor: Colors.black, // Establece el fondo en negro
+        scaffoldBackgroundColor: Colors.black, 
       ),
       home: const InitialScreen(),
     );

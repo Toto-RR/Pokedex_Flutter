@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/api/pokeapi.dart';
+import 'package:pokedex/api/poke_api.dart';
 
 class PokemonCard extends StatelessWidget {
   final String id;
@@ -23,7 +23,7 @@ class PokemonCard extends StatelessWidget {
       typeColors.add(typeColors.first);
     }
 
-    List<double> stops = [0.3, 0.7];
+    List<double> stops = [0.4, 0.6];
 
     return Container(
       padding: const EdgeInsets.all(8.0),

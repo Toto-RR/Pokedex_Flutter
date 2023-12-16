@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/api/pokeapi.dart';
+import 'package:pokedex/api/poke_api.dart';
 import 'package:pokedex/widget/poke_card.dart';
 
 class InitialScreen extends StatefulWidget {
@@ -15,7 +15,7 @@ class _InitialScreenState extends State<InitialScreen> {
   late ScrollController _scrollController;
   late List<Map<String, dynamic>> pokemonList;
   int offset = 0;
-  int limit = 400;
+  int limit = 100;
 
   @override
   void initState() {
