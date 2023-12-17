@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_flutter/constants.dart';
-import 'package:pokedex_flutter/screens/search_screen.dart';
+import 'package:pokedex/constants.dart';
 
 class Toolbar extends StatelessWidget {
   const Toolbar({
@@ -16,22 +15,31 @@ class Toolbar extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => SearchScreen()),
-              );
-            },
-            child: AnimatedPill(
-                text: "Search", icon: Icons.search, iconSize: iconSize),
+          // GestureDetector(
+          //   onTap: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(builder: (context) => SearchScreen()),
+          //     );
+          //   },
+          //   child: AnimatedPill(
+          //       text: "Search", icon: Icons.search, iconSize: iconSize),
+          // ),
+          AnimatedPill(
+            text: "Search",
+            icon: Icons.search,
+            iconSize: iconSize,
           ),
           AnimatedPill(
-              text: "Favourites",
-              icon: Icons.favorite_border_outlined,
-              iconSize: iconSize),
+            text: "Favourites",
+            icon: Icons.favorite_border_outlined,
+            iconSize: iconSize,
+          ),
           AnimatedPill(
-              text: "Settings", icon: Icons.settings, iconSize: iconSize),
+            text: "Settings",
+            icon: Icons.settings,
+            iconSize: iconSize,
+          ),
         ],
       ),
     );

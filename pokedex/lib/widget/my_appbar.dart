@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_flutter/constants.dart';
+import 'package:pokedex/constants.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   const MyAppBar({super.key, required this.appBarText});
