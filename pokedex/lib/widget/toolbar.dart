@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/constants.dart';
+import 'package:pokedex/screens/settings_screen.dart';
 
 class Toolbar extends StatelessWidget {
   const Toolbar({
@@ -35,10 +36,15 @@ class Toolbar extends StatelessWidget {
             icon: Icons.favorite_border_outlined,
             iconSize: iconSize,
           ),
-          AnimatedPill(
-            text: "Settings",
-            icon: Icons.settings,
-            iconSize: iconSize,
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SettingsScreen()),
+              );
+            },
+            child: AnimatedPill(
+                text: "Settings", icon: Icons.settings, iconSize: iconSize),
           ),
         ],
       ),
