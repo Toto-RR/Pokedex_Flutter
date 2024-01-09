@@ -15,3 +15,8 @@ TextStyle whiteNormalStyle = const TextStyle(color: Colors.white, fontSize: 20);
 TextStyle whiteNormalStyleBig = const TextStyle(color: Colors.white, fontSize: 25);
 TextStyle blackNormalStyle = const TextStyle(color: Colors.black, fontSize: 20);
 TextStyle pillsStyle = TextStyle(color: redPokedex, fontSize: 20, fontWeight: FontWeight.w600);
+TextStyle tabTitle = const TextStyle(
+  color: Color.fromARGB(255, 219, 219, 219),
+  fontSize: 15,
+  fontWeight: FontWeight.w500,
+);
