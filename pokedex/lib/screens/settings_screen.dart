@@ -58,10 +58,112 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   style: tabTitle,
                 ),
                 const SizedBox(height: 40),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Dark Mode',
+                          style: whiteNormalStyle,
+                        ),
+                        Text(
+                          'Uses the regular dark theme.',
+                          style: tabTitle,
+                        ),
+                      ],
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        // Cambiar el estado al hacer clic
+                        setState(() {
+                          darkModeIsOn = !darkModeIsOn;
+                        });
+                      },
+                      child: OnOff(isOn: darkModeIsOn),
+                    )
+                  ],
+                ),
+                const SizedBox(height: 40),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Notificacions',
+                          style: whiteNormalStyle,
+                        ),
+                        Text(
+                          'Push notifications are enabled. \n'
+                          'You will get notifications about new updates\n'
+                          'fixes and promotions',
+                          style: tabTitle,
+                        ),
+                      ],
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        // Cambiar el estado al hacer clic
+                        setState(() {
+                          notificationsIsOn = !notificationsIsOn;
+                        });
+                      },
+                      child: OnOff(isOn: notificationsIsOn),
+                    )
+                  ],
+                ),
               ],
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class OnOff extends StatelessWidget {
+  const OnOff({
+    super.key,
+    required this.isOn,
+  });
+
+  final bool isOn;
+
+  @override
+  Widget build(BuildContext context) {
+    return RichText(
+      text: TextSpan(
+        children: [
+          TextSpan(
+            text: 'ON',
+            style: TextStyle(
+              color: isOn ? Colors.red : Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const TextSpan(
+            text: ' / ',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: 'OFF',
+            style: TextStyle(
+              color: isOn ? Colors.white : Colors.red,
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
       ),
     );
   }
