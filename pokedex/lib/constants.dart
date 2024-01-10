@@ -21,3 +21,15 @@ TextStyle tabTitle = const TextStyle(
   fontSize: 15,
   fontWeight: FontWeight.w500,
 );
+
+TextStyle whiteTitleStyle = const TextStyle(
+  color: Colors.white,
+  fontSize: 40,
+  shadows: [
+    BoxShadow(
+      color: Colors.black,
+      blurRadius: 3,
+      offset: Offset(0, 2),
+    ),
+  ],
+);

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/constants.dart';
 import 'package:pokedex/information/generation_info.dart';
+import 'package:pokedex/screens/infoscreen/stats_content.dart';
 
 class PokemonContent extends StatefulWidget {
   const PokemonContent({
@@ -85,7 +86,14 @@ class _PokemonContentState extends State<PokemonContent>
             Expanded(
               child: TabBarView(
                 controller: _tabController,
-                children: [],
+                children: [
+                  StatsTab(
+                    stats: widget.stats,
+                    pokemonName: widget.pokemonName,
+                    types: widget.types,
+                    abilities: widget.abilities,
+                  ),
+                ],
               ),
             ),
           ],

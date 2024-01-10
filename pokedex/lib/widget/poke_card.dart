@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:pokedex/api/poke_api.dart';
 import 'package:pokedex/information/pokemon_info.dart';
 import 'package:pokedex/screens/info_screen.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class PokemonCard extends StatelessWidget {
   final PokemonInfo pokemonInfo;
