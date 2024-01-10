@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/constants.dart';
 import 'package:pokedex/provider/pokemon_provider.dart';
+import 'package:pokedex/screens/info_screen.dart';
 import 'package:pokedex/widget/my_appbar.dart';
 import 'package:pokedex/widget/poke_card.dart';
 import 'package:pokedex/widget/toolbar.dart';
@@ -70,7 +71,17 @@ class _InitialScreenState extends State<InitialScreen> {
                 
                           return GestureDetector(
                             onTap: () {
-                              
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => InfoScreen(
+                                    pokemonName: pokemonInfo.pokemonName,
+                                    id: pokemonInfo.id,
+                                    types: pokemonInfo.types,
+                                    stats: pokemonInfo.stats,
+                                  ),
+                                ),
+                              );
                             },
                             child: PokemonCard(
                               pokemonInfo: pokemonInfo,
