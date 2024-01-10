@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:pokedex/api/poke_api.dart';
 import 'package:pokedex/information/pokemon_info.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:pokedex/screens/info_screen.dart';
 
 class PokemonCard extends StatelessWidget {
   final PokemonInfo pokemonInfo;
@@ -26,7 +27,17 @@ class PokemonCard extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => InfoScreen(
+              pokemonName: pokemonInfo.pokemonName,
+              id: pokemonInfo.id,
+              types: pokemonInfo.types,
+              stats: pokemonInfo.stats,
+            ),
+          ),
+        );
       },
       child: PokeCardDecoration(
         typeColors: typeColors,
