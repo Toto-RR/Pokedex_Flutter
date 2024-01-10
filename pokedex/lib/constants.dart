@@ -8,6 +8,7 @@ const Color oldRedPokedex = Color(0xFFb45c64);
 const Color bluePokedex = Color(0xFFa7b9d3);
 const Color brownPokedex = Color(0xFF4c3434);
 const Color darkPokedex = Color.fromARGB(255, 29, 29, 29);
+const Color greyBackground = Color.fromARGB(255, 85, 85, 85);
 
 
 // TEXT STYLES -------------------------------
