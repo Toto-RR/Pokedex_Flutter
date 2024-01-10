@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pokedex/api/poke_api.dart';
 import 'package:pokedex/constants.dart';
 import 'package:pokedex/information/abilities_info.dart';
+import 'package:pokedex/information/generation_info.dart';
 import 'package:pokedex/information/pokemon_info.dart';
 import 'package:pokedex/provider/favorite_provider.dart';
 import 'package:pokedex/screens/infoscreen/pokemon_content.dart';
@@ -37,6 +38,7 @@ class InfoScreen extends StatefulWidget {
 
 class _InfoScreenState extends State<InfoScreen> {
   late PokemonInfo pokemonInfo;
+  late GenerationInfo generationInfo;
   List<String> favoritePokemon = [];
 
   @override
@@ -44,7 +46,8 @@ class _InfoScreenState extends State<InfoScreen> {
     super.initState();
     pokemonInfo = PokemonInfo.empty(
         widget.id, widget.pokemonName, widget.types, widget.stats);
-     _loadPokemonInfo();
+    generationInfo = GenerationInfo.empty(List.empty());
+    _loadPokemonInfo();
   }
 
   Future<void> _loadPokemonInfo() async {
@@ -90,7 +93,15 @@ class _InfoScreenState extends State<InfoScreen> {
 
   Future<void> _loadGenerationInfo() async {
     try {
-} catch (e) {
+      final generationInfoResponse =
+          await ApiService.fetchGenerationInfo(pokemonInfo.generation);
+      generationInfo = GenerationInfo(
+        generation: generationInfoResponse['name'],
+        region: generationInfoResponse['main_region']['name'],
+        games: generationInfoResponse['version_groups'],
+        firstGames: generationInfoResponse['version_groups'][0]['name'],
+      );
+    } catch (e) {
       // ignore: avoid_print
       print("Error al cargar la información de la generación: $e");
     }
@@ -148,6 +159,7 @@ class _InfoScreenState extends State<InfoScreen> {
               types: widget.types,
               stats: widget.stats,
               description: pokemonInfo.description,
+              generations: generationInfo,
               baseHappiness: pokemonInfo.baseHappiness,
               captureRate: pokemonInfo.captureRate,
               evolvesFrom: pokemonInfo.evolvesFrom,

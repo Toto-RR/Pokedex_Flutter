@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/constants.dart';
+import 'package:pokedex/screens/search_screen.dart';
 import 'package:pokedex/screens/settings_screen.dart';
 
 class Toolbar extends StatelessWidget {
@@ -16,20 +17,15 @@ class Toolbar extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          // GestureDetector(
-          //   onTap: () {
-          //     Navigator.push(
-          //       context,
-          //       MaterialPageRoute(builder: (context) => SearchScreen()),
-          //     );
-          //   },
-          //   child: AnimatedPill(
-          //       text: "Search", icon: Icons.search, iconSize: iconSize),
-          // ),
-          AnimatedPill(
-            text: "Search",
-            icon: Icons.search,
-            iconSize: iconSize,
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SearchScreen()),
+              );
+            },
+            child: AnimatedPill(
+                text: "Search", icon: Icons.search, iconSize: iconSize),
           ),
           AnimatedPill(
             text: "Favourites",

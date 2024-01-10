@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_flutter/constants.dart';
-import 'package:pokedex_flutter/information/pokemon_info.dart';
-import 'package:pokedex_flutter/api/pokeapi.dart';
-import 'package:pokedex_flutter/widgets/my_appbar.dart';
-import 'package:pokedex_flutter/widgets/poke_card.dart';
+import 'package:pokedex/api/poke_api.dart';
+import 'package:pokedex/constants.dart';
+import 'package:pokedex/information/pokemon_info.dart';
+import 'package:pokedex/widget/my_appbar.dart';
+import 'package:pokedex/widget/poke_card.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({Key? key}) : super(key: key);

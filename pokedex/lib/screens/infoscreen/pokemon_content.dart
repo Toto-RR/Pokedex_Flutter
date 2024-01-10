@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/constants.dart';
+import 'package:pokedex/information/generation_info.dart';
 
 class PokemonContent extends StatefulWidget {
   const PokemonContent({
@@ -8,6 +9,7 @@ class PokemonContent extends StatefulWidget {
     required this.types,
     required this.stats,
     required this.description,
+    required this.generations,
     required this.baseHappiness,
     required this.captureRate,
     required this.growthRate,
@@ -24,6 +26,7 @@ class PokemonContent extends StatefulWidget {
   final List types;
   final List stats;
   final String description;
+  final GenerationInfo generations;
   final String baseHappiness;
   final String captureRate;
   final String evolvesFrom;
