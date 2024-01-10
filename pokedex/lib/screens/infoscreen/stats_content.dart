@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/api/poke_api.dart';
 import 'package:pokedex/constants.dart';
+import 'package:pokedex/widget/types_pill.dart';
 
 class StatsTab extends StatelessWidget {
   const StatsTab({
@@ -24,6 +26,10 @@ class StatsTab extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Text(pokemonName.toUpperCase(), style: whiteTitleStyle),
+        ),
+         Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Types(types: types),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -67,6 +73,38 @@ class AbilityRow extends StatelessWidget {
           Text(whichAbility, style: tabTitle),
         ],
       ),
+    );
+  }
+}
+
+
+class Types extends StatelessWidget {
+  const Types({
+    super.key,
+    required this.types,
+  });
+
+  final List types;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: types.map(
+        (type) {
+          String typeName = type['type']['name'];
+          Color typeColor = ApiService.typeColors[typeName] ?? Colors.grey;
+
+          return TypePill(
+            typeColor: typeColor,
+            typeName: typeName,
+            hPadding: 60.0,
+            vPadding: 5.0,
+            shadowColor: const Color.fromARGB(255, 58, 58, 58),
+            pillStyle: pillsStyleShadow,
+          );
+        },
+      ).toList(),
     );
   }
 }

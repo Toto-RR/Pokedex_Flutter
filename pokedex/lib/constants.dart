@@ -78,3 +78,16 @@ TextStyle whiteSubTitleStyle = const TextStyle(
     ),
   ],
 );
+
+TextStyle pillsStyleShadow = const TextStyle(
+  color: Colors.white,
+  fontSize: 20,
+  fontWeight: FontWeight.w600,
+  shadows: [
+    BoxShadow(
+      color: Colors.black,
+      blurRadius: 3,
+      offset: Offset(0, 2),
+    ),
+  ],
+);

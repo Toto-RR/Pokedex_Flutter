@@ -67,7 +67,7 @@ class _PokemonContentState extends State<PokemonContent>
         ],
       ),
       child: DefaultTabController(
-        length: 2,
+        length: 3,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -81,6 +81,7 @@ class _PokemonContentState extends State<PokemonContent>
               tabs: const [
                 Tab(text: "Stats", ),
                 Tab(text: "About"),
+                Tab(text: "Info"),
               ],
             ),
             Expanded(
