@@ -10,8 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => FavoriteProvider()), // Reemplaza FavoriteProvider con el nombre real de tu provider
-        // Agrega más proveedores según sea necesario
+        ChangeNotifierProvider(create: (_) => FavoriteProvider()),
       ],
       child: MaterialApp(
         title: 'PokeAPI Flutter',
