@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/constants.dart';
 import 'package:pokedex/information/generation_info.dart';
+import 'package:pokedex/screens/infoscreen/about_content.dart';
 import 'package:pokedex/screens/infoscreen/stats_content.dart';
 
 class PokemonContent extends StatefulWidget {
@@ -66,7 +67,7 @@ class _PokemonContentState extends State<PokemonContent>
         ],
       ),
       child: DefaultTabController(
-        length: 3,
+        length: 2,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -80,7 +81,6 @@ class _PokemonContentState extends State<PokemonContent>
               tabs: const [
                 Tab(text: "Stats", ),
                 Tab(text: "About"),
-                Tab(text: "Info"),
               ],
             ),
             Expanded(
@@ -92,6 +92,15 @@ class _PokemonContentState extends State<PokemonContent>
                     pokemonName: widget.pokemonName,
                     types: widget.types,
                     abilities: widget.abilities,
+                  ),
+                  AboutTab(
+                    id: widget.id,
+                    description: widget.description,
+                    baseHappiness: widget.baseHappiness,
+                    captureRate: widget.captureRate,
+                    growthRate: widget.growthRate,
+                    evolvesFrom: widget.evolvesFrom,
+                    habitat: widget.habitat,
                   ),
                 ],
               ),
