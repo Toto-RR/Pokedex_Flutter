@@ -70,3 +70,47 @@ class _SearchScreenState extends State<SearchScreen> {
     );
   }
 
+void _searchPokemon() async {
+    final pokemonName = _searchController.text.trim().toLowerCase();
+    if (pokemonName.isNotEmpty) {
+      try {
+        final result = await ApiService.fetchPokemon(pokemonName);
+        setState(() {
+          _searchResult = PokemonInfo(
+            id: result['id'].toString(),
+            pokemonName: result['name'],
+            types: result['types'],
+            stats: result['stats'],
+            description: '',
+            generation: '',
+            baseHappiness: '',
+            captureRate: '',
+            evolvesFrom: '',
+            growthRate: '',
+            habitat: '',
+            height: 0,
+            weight: 0,
+            abilities: List.empty(),
+          );
+        });
+      } catch (e) {
+        // Manejar el error, por ejemplo, mostrando un mensaje al usuario
+        setState(() {
+          _searchResult = null;
+        });
+      }
+    }
+  }
+
+  Widget _buildSearchResult() {
+    return Column(
+      children: [
+        Text("Results: ", style: whiteNormalStyle),
+        const SizedBox(height: 10),
+        PokemonCard(
+          pokemonInfo: _searchResult!,
+        ),
+      ],
+    );
+  }
+}
