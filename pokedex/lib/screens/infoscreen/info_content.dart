@@ -115,3 +115,71 @@ TextStyle generationPillStyle = TextStyle(
         )
       ],
     );
+
+return Expanded(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          GenerationPill(
+            beginColor: beginColor,
+            endColor: endColor,
+            generation: generation,
+            generationPillStyle: generationPillStyle,
+          ),
+          const SizedBox(height: 10),
+          GamesList(generation: generation)
+        ],
+      ),
+    );
+  }
+}
+
+class GenerationPill extends StatelessWidget {
+  const GenerationPill({
+    super.key,
+    required this.beginColor,
+    required this.endColor,
+    required this.generation,
+    required this.generationPillStyle,
+  });
+
+  final Color beginColor;
+  final Color endColor;
+  final GenerationInfo generation;
+  final TextStyle generationPillStyle;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 10.0),
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [beginColor, endColor],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          stops: const [0.5, 0.5],
+        ),
+        borderRadius: const BorderRadius.all(
+          Radius.circular(20),
+        ),
+      ),
+      child: Column(
+        children: [
+          Text(generation.generation.toUpperCase(), style: whiteSubTitleStyle),
+          GenerationRow(
+            name: "Region",
+            data: generation.region,
+            style: generationPillStyle,
+          ),
+          GenerationRow(
+            name: "First Appareance",
+            data: generation.firstGames,
+            style: generationPillStyle,
+          ),
+        ],
+      ),
+    );
+  }
+}
