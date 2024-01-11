@@ -183,3 +183,71 @@ class GenerationPill extends StatelessWidget {
     );
   }
 }
+
+class GamesList extends StatelessWidget {
+  const GamesList({
+    super.key,
+    required this.generation,
+  });
+
+  final GenerationInfo generation;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 20),
+      child: Stack(
+        alignment: Alignment.centerLeft,
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                "Appears in: ",
+                style: tabTitle,
+              ),
+            ],
+          ),
+          GameList(style: whiteNormalStyle, generation: generation),
+        ],
+      ),
+    );
+  }
+}
+
+class GameList extends StatelessWidget {
+  const GameList({
+    Key? key,
+    required this.style,
+    required this.generation,
+  }) : super(key: key);
+
+  final GenerationInfo generation;
+  final TextStyle style;
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.centerRight,
+      child: SizedBox(
+        width: 300,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: generation.games
+              .map(
+                (versionGroup) => ListTile(
+                  title: Text(
+                    versionGroup['name'].toUpperCase(),
+                    style: style,
+                    textAlign: TextAlign.start,
+                  ),
+                ),
+              )
+              .toList(),
+        ),
+      ),
+    );
+  }
+}
