@@ -91,3 +91,8 @@ TextStyle pillsStyleShadow = const TextStyle(
     ),
   ],
 );
+
+TextStyle whiteStatStyle = const TextStyle(
+  color: Colors.white,
+  fontSize: 15,
+);
