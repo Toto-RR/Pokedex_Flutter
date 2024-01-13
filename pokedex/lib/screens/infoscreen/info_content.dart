@@ -251,3 +251,55 @@ class GameList extends StatelessWidget {
     );
   }
 }
+
+class GenerationRow extends StatelessWidget {
+  const GenerationRow({
+    super.key,
+    required this.name,
+    required this.data,
+    required this.style,
+  });
+
+  final String data;
+  final String name;
+  final TextStyle style;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text("$name: ", style: style),
+        Text(data.toUpperCase(), style: style),
+      ],
+    );
+  }
+}
+
+class InfoRow extends StatelessWidget {
+  const InfoRow({
+    super.key,
+    required this.info,
+    required this.data,
+  });
+
+  final double data;
+  final String info;
+
+  @override
+  Widget build(BuildContext context) {
+    final double dataInUnit = data / 10;
+    return SizedBox(
+      height: 100,
+      child: Column(
+        children: [
+          info == 'Height'
+              ? Text("$dataInUnit m", style: whiteTitleStyle)
+              : Text("$dataInUnit kg", style: whiteTitleStyle),
+          const SizedBox(height: 10),
+          Text(info, style: tabTitle),
+        ],
+      ),
+    );
+  }
+}
