@@ -60,7 +60,19 @@ class _AboutTabState extends State<AboutTab> {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [],
+      children: [
+        InfoRow(title: "Description", description: widget.description),
+        InfoRow(title: "Base Happiness", description: widget.baseHappiness),
+        InfoRow(title: "Capture Rate", description: "${widget.captureRate}%"),
+        InfoRow(
+          title: "Growth Rate",
+          description: widget.growthRate,
+        ),
+        InfoRow(title: "Habitat", description: widget.habitat),
+        preevolutionDetails != null
+            ? _showPreEvoCard()
+            : Text("This Pokemon has no preevolution", style: whiteNormalStyle),
+      ],
     );
   }
 
@@ -93,6 +105,73 @@ class _AboutTabState extends State<AboutTab> {
         const SizedBox(height: 5),
         PokemonCard(
           pokemonInfo: preevolutionInfo,
+        ),
+      ],
+    );
+  }
+}
+
+class InfoPill extends StatelessWidget {
+  const InfoPill({
+    super.key,
+    required this.title,
+    required this.data,
+  });
+
+  final String data;
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        color: Colors.transparent,
+        border: Border.all(
+          color: Colors.white,
+        ),
+        borderRadius: const BorderRadius.all(Radius.circular(20)),
+      ),
+      child: Text("$title: $data",
+          style: const TextStyle(
+            color: Colors.white,
+          )),
+    );
+  }
+}
+
+class InfoRow extends StatelessWidget {
+  const InfoRow({
+    super.key,
+    required this.title,
+    required this.description,
+  });
+
+  final String description;
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Container(
+          width: 150,
+          padding: const EdgeInsets.all(10),
+          child: Text(
+            title.toUpperCase(),
+            style: tabTitle,
+          ),
+        ),
+        Container(
+          width: 300,
+          padding: const EdgeInsets.all(10),
+          child: Text(
+            description.replaceAll('\n', ' '),
+            style: const TextStyle(color: Colors.white, fontSize: 15),
+            textAlign: TextAlign.start,
+          ),
         ),
       ],
     );

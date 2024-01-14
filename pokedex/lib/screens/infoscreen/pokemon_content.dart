@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:pokedex/constants.dart';
 import 'package:pokedex/information/generation_info.dart';
 import 'package:pokedex/screens/infoscreen/about_content.dart';
-import 'package:pokedex/screens/infoscreen/stats_content.dart';
+import 'package:pokedex/screens/infoscreen/info_content.dart';
+
+import 'stats_content.dart';
 
 class PokemonContent extends StatefulWidget {
   const PokemonContent({
@@ -102,6 +104,11 @@ class _PokemonContentState extends State<PokemonContent>
                     growthRate: widget.growthRate,
                     evolvesFrom: widget.evolvesFrom,
                     habitat: widget.habitat,
+                  ),
+                  InfoTab(
+                    height: widget.height,
+                    weight: widget.weight,
+                    generation: widget.generations,
                   ),
                 ],
               ),

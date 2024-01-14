@@ -28,7 +28,7 @@ class StatsTab extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Text(pokemonName.toUpperCase(), style: whiteTitleStyle),
         ),
-         Padding(
+        Padding(
           padding: const EdgeInsets.all(8.0),
           child: Types(types: types),
         ),
@@ -48,6 +48,7 @@ class StatsTab extends StatelessWidget {
             ),
           ],
         ),
+        Stats(stats: stats),
       ],
     );
   }
@@ -77,7 +78,6 @@ class AbilityRow extends StatelessWidget {
     );
   }
 }
-
 
 class Types extends StatelessWidget {
   const Types({
@@ -109,7 +109,6 @@ class Types extends StatelessWidget {
     );
   }
 }
-
 
 class Stats extends StatelessWidget {
   const Stats({
