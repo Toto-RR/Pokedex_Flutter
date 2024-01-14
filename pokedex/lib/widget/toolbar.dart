@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/constants.dart';
+import 'package:pokedex/screens/favorite_screen.dart';
 import 'package:pokedex/screens/search_screen.dart';
 import 'package:pokedex/screens/settings_screen.dart';
 
@@ -21,16 +22,24 @@ class Toolbar extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => SearchScreen()),
+                MaterialPageRoute(builder: (context) => const SearchScreen()),
               );
             },
             child: AnimatedPill(
                 text: "Search", icon: Icons.search, iconSize: iconSize),
           ),
-          AnimatedPill(
-            text: "Favourites",
-            icon: Icons.favorite_border_outlined,
-            iconSize: iconSize,
+           GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const FavoritesScreen()), // Abre FavoritesScreen
+              );
+            },
+            child: AnimatedPill(
+              text: "Favourites",
+              icon: Icons.favorite_border_outlined,
+              iconSize: iconSize,
+            ),
           ),
           GestureDetector(
             onTap: () {
@@ -61,7 +70,7 @@ class AnimatedPill extends StatefulWidget {
   final IconData icon;
 
   @override
-  _AnimatedPillState createState() => _AnimatedPillState();
+  State<AnimatedPill> createState() => _AnimatedPillState();
 }
 
 class _AnimatedPillState extends State<AnimatedPill> {
@@ -73,10 +82,10 @@ class _AnimatedPillState extends State<AnimatedPill> {
       onEnter: (_) => _onHover(true),
       onExit: (_) => _onHover(false),
       child: AnimatedContainer(
-        duration: Duration(milliseconds: 200),
-        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+        duration: const Duration(milliseconds: 200),
+        padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(20)),
+          borderRadius: const BorderRadius.all(Radius.circular(20)),
           border: Border.all(
             color: Colors.white,
           ),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_flutter/constants.dart';
-import 'package:pokedex_flutter/api/pokeapi.dart';
-import 'package:pokedex_flutter/widgets/my_appbar.dart';
-import 'package:pokedex_flutter/widgets/types_pill.dart';
+import 'package:pokedex/api/poke_api.dart';
+import 'package:pokedex/constants.dart';
+import 'package:pokedex/widget/my_appbar.dart';
+import 'package:pokedex/widget/types_pill.dart';
 
 class TypesTable extends StatefulWidget {
   final String type;
@@ -31,7 +31,6 @@ class _TypesTableState extends State<TypesTable> {
       final pokemonData = await ApiService.fetchTypeInfo(widget.type);
       typeName = pokemonData['name'];
       damageRelations = pokemonData['damage_relations'];
-
     } catch (e) {
       // ignore: avoid_print
       print("Error al cargar la información del Pokémon: $e");
@@ -82,7 +81,7 @@ class _TypesTableState extends State<TypesTable> {
     );
   }
 
-Widget _buildDamageList(String title, List<dynamic>? damageList) {
+  Widget _buildDamageList(String title, List<dynamic>? damageList) {
     if (damageList == null || damageList.isEmpty) {
       return const SizedBox.shrink();
     }

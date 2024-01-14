@@ -119,6 +119,26 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
               ],
             ),
+            const Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 16.0),
+                  child: Text(
+                    'App Version 1.0.0. \n'
+                    'API used: pokeapi.co \n'
+                    'Images used: raw.githubuser.com/PokeApi \n\n'
+                    'Designed and Developed by Toni Romanos and Victor Gil \n'
+                    'This app is a non-profit, non-commercial app. \n'
+                    '2023-2024',
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 12,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),

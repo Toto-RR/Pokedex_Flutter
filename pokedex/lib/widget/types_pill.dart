@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/api/poke_api.dart';
+import 'package:pokedex/screens/typestable_screen.dart';
 
 class TypePill extends StatelessWidget {
   const TypePill({
@@ -22,6 +23,16 @@ class TypePill extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => TypesTable(
+              type: typeName,
+            ),
+          ),
+        );
+      },
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 5.0),
         padding: EdgeInsets.symmetric(
