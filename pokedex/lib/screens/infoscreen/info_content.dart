@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_flutter/constants.dart';
-import 'package:pokedex_flutter/information/generation_info.dart';
+import 'package:pokedex/constants.dart';
+import 'package:pokedex/information/generation_info.dart';
 
 class InfoTab extends StatelessWidget {
   const InfoTab({
