@@ -82,3 +82,47 @@ class _TypesTableState extends State<TypesTable> {
     );
   }
 
+Widget _buildDamageList(String title, List<dynamic>? damageList) {
+    if (damageList == null || damageList.isEmpty) {
+      return const SizedBox.shrink();
+    }
+
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Text(title, style: tabTitle),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: damageList.map((damage) {
+            final typeName = damage['name'];
+            Color typeColor = ApiService.typeColors[typeName] ?? Colors.grey;
+            return Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: TypePill(
+                typeName: typeName,
+                typeColor: typeColor,
+                hPadding: 30.0,
+                vPadding: 5.0,
+                shadowColor: const Color.fromARGB(255, 15, 15, 15),
+                pillStyle: pillsStyleShadow,
+              ),
+            );
+          }).toList(),
+        ),
+        const SizedBox(height: 20.0),
+      ],
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: MyAppBar(appBarText: typeName.toUpperCase()),
+      backgroundColor: darkPokedex,
+      body: Center(
+        child: _buildDamageRelations(),
+      ),
+    );
+  }
+}
